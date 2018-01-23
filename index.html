@@ -27,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
           </ul>
-          <span class="text-white">Current weather for: <span class="text-success">Dubai</span>, <span class="text-success">25deg</span>, <span class="text-success">heavy snow</span></span>
+          <span class="text-white">Current weather for: <span id="city" class="font-weight-bold">Dubai</span> - <span id="degree" class="font-weight-bold">25deg</span> - <span id="desc" class="font-weight-bold">heavy snow</span></span>
         </div>
       </nav>
     </header>
@@ -36,27 +36,28 @@
     <div class="container">
       <main role="main">
 
-      <div class="jumbotron py-4">
-        <h3>Playing with local storage and document selectors</h3>
-        <p>in the <code>index.js</code> I made a call to the Openweather API. To not reach any api-limit we want to save the result first into the localStorage.</p>
-        <p><strong>Task:</strong> Use the result of the API call, save it into the localStorage. Then use the contents of the localStorage to fill all the <span class="text-success">green</span> gaps on this page.</p>
-        <p>Use common selectors like:</p>
-        <ul class="list-group list-group-flush mb-3">
-          <li class="list-group-item py-1"><code> document.getElementsByTagName("p");</code> </li>
-          <li class="list-group-item py-1"><code> document.getElementById("xyz");</code></li>
-          <li class="list-group-item py-1"><code>document.getElementsByClassName("abc");</code></li>
-          <li class="list-group-item py-1"><code> document.getElementsByName("xyz"); </code></li>
-          <li class="list-group-item py-1"><code> document.querySelectorAll("span.a, span.c"); </code></li>
-        </ul>
-        Be aware of the result of the selectors (single item, HTML-Collection, Nodelist etc.)
-        <br/>
-        For refernce to the api check: 
-        <a href="http://openweathermap.org/current" target="_blank">Open Weather Map API Docs</a>
-      </div>
+      <!--<div class="jumbotron py-4">-->
+        <!--<h3>Playing with local storage and document selectors</h3>-->
+        <!--<p>in the <code>index.js</code> I made a call to the Openweather API. To not reach any api-limit we want to save the result first into the localStorage.</p>-->
+        <!--<p><strong>Task:</strong> Use the result of the API call, save it into the localStorage. Then use the contents of the localStorage to fill all the <span class="text-success">green</span> gaps on this page.</p>-->
+        <!--<p>Use common selectors like:</p>-->
+        <!--<ul class="list-group list-group-flush mb-3">-->
+          <!--<li class="list-group-item py-1"><code> document.getElementsByTagName("p");</code> </li>-->
+          <!--<li class="list-group-item py-1"><code> document.getElementById("xyz");</code></li>-->
+          <!--<li class="list-group-item py-1"><code>document.getElementsByClassName("abc");</code></li>-->
+          <!--<li class="list-group-item py-1"><code> document.getElementsByName("xyz"); </code></li>-->
+          <!--<li class="list-group-item py-1"><code> document.querySelectorAll("span.a, span.c"); </code></li>-->
+        <!--</ul>-->
+        <!--Be aware of the result of the selectors (single item, HTML-Collection, Nodelist etc.)-->
+        <!--<br/>-->
+        <!--For refernce to the api check: -->
+        <!--<a href="http://openweathermap.org/current" target="_blank">Open Weather Map API Docs</a>-->
+      <!--</div>-->
 
       <table class="table">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">Image</th>
             <th scope="col">Forecast</th>
             <th scope="col">Day temp</th>
             <th scope="col">Night temp</th>
@@ -64,18 +65,6 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th class="text-success" scope="row"><span class="badge badge-light text-success">2018-01-23 09:00:00</span></th>
-            <td class="text-success">3.4</td>
-            <td class="text-success">2.6</td>
-            <td class="text-success">clear sky</td>
-          </tr>
-          <tr>
-            <th class="text-success" scope="row"><span class="badge badge-light text-success">2018-01-23 11:00:00</span></th>
-            <td class="text-success">3.4</td>
-            <td class="text-success">1.2</td>
-            <td class="text-success">fog</td>
-          </tr>
         </tbody>
       </table>
 
