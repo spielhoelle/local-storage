@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Local Storage</title>
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+  </head>
+
+  <body>
+
+
+    <main role="main">
+
+    <header class="header clearfix mb-3">
+      <nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Local Storage</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+          </ul>
+          <span class="text-white">Current weather for: <span class="text-success">Dubai</span>, <span class="text-success">25deg</span>, <span class="text-success">heavy snow</span></span>
+        </div>
+      </nav>
+    </header>
+
+
+    <div class="container">
+      <main role="main">
+
+      <div class="jumbotron py-4">
+        <h3>Playing with local storage and document selectors</h3>
+        <p>in the <code>index.js</code> I made a call to the Openweather API. To not reach any api-limit we want to save the result first into the localStorage.</p>
+        <p><strong>Task:</strong> Use the result of the API call, save it into the localStorage. Then use the contents of the localStorage to fill all the <span class="text-success">green</span> gaps on this page.</p>
+        <p>Use common selectors like:</p>
+        <ul class="list-group list-group-flush mb-3">
+          <li class="list-group-item py-1"><code> document.getElementsByTagName("p");</code> </li>
+          <li class="list-group-item py-1"><code> document.getElementById("xyz");</code></li>
+          <li class="list-group-item py-1"><code>document.getElementsByClassName("abc");</code></li>
+          <li class="list-group-item py-1"><code> document.getElementsByName("xyz"); </code></li>
+          <li class="list-group-item py-1"><code> document.querySelectorAll("span.a, span.c"); </code></li>
+        </ul>
+        Be aware of the result of the selectors (single item, HTML-Collection, Nodelist etc.)
+        <br/>
+        For refernce to the api check: 
+        <a href="http://openweathermap.org/current" target="_blank">Open Weather Map API Docs</a>
+      </div>
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Forecast</th>
+            <th scope="col">Day temp</th>
+            <th scope="col">Night temp</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="text-success" scope="row"><span class="badge badge-light text-success">2018-01-23 09:00:00</span></th>
+            <td class="text-success">3.4</td>
+            <td class="text-success">2.6</td>
+            <td class="text-success">clear sky</td>
+          </tr>
+          <tr>
+            <th class="text-success" scope="row"><span class="badge badge-light text-success">2018-01-23 11:00:00</span></th>
+            <td class="text-success">3.4</td>
+            <td class="text-success">1.2</td>
+            <td class="text-success">fog</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      </main>
+
+
+    </div> <!-- /container -->
+
+
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <script src="index.js"></script>
+  </body>
+</html>
