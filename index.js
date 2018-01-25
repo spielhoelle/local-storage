@@ -57,6 +57,8 @@ function updateView(){
     i.innerHTML += "<td>"+item.wind.speed+"</td>";
 
     document.getElementsByTagName("tbody")[0].appendChild(i);
+    document.getElementById("loader").classList.add("loaded")
+
   })
 
 }
