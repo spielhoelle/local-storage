@@ -1,12 +1,10 @@
-if (window.location.search){
-  console.log(window.location.search.substr(1))
-}
-
-//Refresh if older than one day
+//Refresh localstorage if db is older than one day
 if ( localStorage.getItem("db") == null || ( Date.now() - JSON.parse(localStorage.getItem("db-updated") )) > 86400) {
   fetch("https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=berlin&units=metric&appid=e269b0432cb35577201f06837e2a5803")
     .then(resp => resp.json()).then((weatherData) => {
+      //set db
       localStorage.setItem("db", JSON.stringify(weatherData));
+      //set db expiry date
       localStorage.setItem("db-updated", Date.now());
       updateView();
     });
@@ -29,13 +27,21 @@ function updateView(){
    * */
 
   if(window.location.search.substr(1) === "wind=asc"){
+    // here we append a GET parameter with the sorting method
+    // eg. 
+    // www.example.com 
+    // gets:
+    // www.example.com?wind=desc
     document.getElementById("windsorter").href = "index.html?wind=desc"
+    //here we sort the data array before rendering
     data.list.sort(function(a,b) { return (a.wind.speed > b.wind.speed) ? 1 : ((b.wind.speed > a.wind.speed) ? -1 : 0);} );
   } else if(window.location.search.substr(1) === "wind=desc"){
+    //here goes sorting revers
     document.getElementById("windsorter").href = "index.html?wind=asc"
     data.list.sort(function(a,b) { return (a.wind.speed < b.wind.speed) ? 1 : ((b.wind.speed < a.wind.speed) ? -1 : 0);} );
   }
 
+  //create forecast table
   data.list.forEach(function(item){
     var i = document.createElement("tr")
 
@@ -56,22 +62,13 @@ function updateView(){
 }
 
 
-// window.addEventListener('scroll', function(e) {
-
-// shot this into the console and find out what they do!
-
 // window.scrollY
 // document.body.clientHeight
 // window.innerHeight
 // document.getElementById("xyz").style.width = percent + "%"
 
-// to access elements style attributes
-// .style.transform = 'rotate(' + percent * 10 + 'deg)'
-
-
 
 window.addEventListener('scroll', function(e) {
   var percent = (window.scrollY ) / (document.body.clientHeight - window.innerHeight) * 100
   document.getElementById("scroll").style.width = percent + "%"
-  document.getElementById("rotate").style.transform = 'rotate(' + percent * 10 + 'deg)'
 });
