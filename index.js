@@ -54,3 +54,24 @@ function updateView(){
   })
 
 }
+
+
+// window.addEventListener('scroll', function(e) {
+
+// shot this into the console and find out what they do!
+
+// window.scrollY
+// document.body.clientHeight
+// window.innerHeight
+// document.getElementById("xyz").style.width = percent + "%"
+
+// to access elements style attributes
+// .style.transform = 'rotate(' + percent * 10 + 'deg)'
+
+
+
+window.addEventListener('scroll', function(e) {
+  var percent = (window.scrollY ) / (document.body.clientHeight - window.innerHeight) * 100
+  document.getElementById("scroll").style.width = percent + "%"
+  document.getElementById("rotate").style.transform = 'rotate(' + percent * 10 + 'deg)'
+});
