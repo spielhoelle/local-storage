@@ -42,21 +42,21 @@ function updateView(){
   }
 
   //create forecast table
-  data.list.forEach(function(item){
-    var i = document.createElement("tr")
+  var cardTemplate = document.getElementById('card-template')
 
-    // formatting date in Javascript is a pain in the ass
+  data.list.forEach(function(item){
+    var cardClone = cardTemplate.cloneNode(true);
     var date = new Date(item.dt_txt)
     var datestring = `${ date.getDate() }.${ ( date.getMonth() + 1 ) }.${ date.getFullYear() } ${date.getHours() }:${ date.getMinutes() }0`
+    cardClone.removeAttribute('id')
+    cardClone.classList.remove('d-none')
+    cardClone.querySelector('.card-title').innerHTML = datestring
+    cardClone.querySelector('.card-text').innerHTML = item.weather[0].description
+    cardClone.querySelector('.list-group-item:nth-child(1)').innerHTML = `Max: ${ item.main.temp_max }`
+    cardClone.querySelector('.list-group-item:nth-child(2)').innerHTML = `Min: ${ item.main.temp_min }`
+    
 
-    i.innerHTML += `<td><img class="img-fluid" alt=${data.list[0].weather[0].description} src="./weatherIcons/${item.weather[0].icon}.svg" /></td>`
-    i.innerHTML += "<td>"+ datestring + "</td>";
-    i.innerHTML += "<td>"+ item.main.temp_max +"</td>";
-    i.innerHTML += "<td>"+ item.main.temp_min +"</td>";
-    i.innerHTML += "<td>"+item.weather[0].description+"</td>";
-    i.innerHTML += "<td>"+item.wind.speed+"</td>";
-
-    document.getElementsByTagName("tbody")[0].appendChild(i);
+    document.getElementById("target").appendChild(cardClone);
     document.getElementById("loader").classList.add("loaded")
 
   })
