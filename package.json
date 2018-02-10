@@ -1,0 +1,23 @@
+{
+  "name": "local-storage",
+  "version": "1.0.0",
+  "description": "### Usage: go to `ìndex.js` and save the response of the api-call in the localStorage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spielhoelle/local-storage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spielhoelle/local-storage/issues"
+  },
+  "homepage": "https://github.com/spielhoelle/local-storage#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rsync": "0.0.8"
+  }
+}
